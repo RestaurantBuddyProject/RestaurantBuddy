@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAe6PejP4h93Fce9_ZxA1tEl-wEnl8oXo4&callback=initMap"></script>
+    <script>
+        function initialize() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition);
+            }
+        }
+        function showLocation(position) {
+            var mapProp = {
+                center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                zoom: 17,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapTypeControl: false
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            var myCenter = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            var marker = new google.maps.Marker({
+                position: myCenter,
+            });
+            marker.setMap(map);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+
+<body>
+    <script>
+        // This is called with the results from from FB.getLoginStatus().
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+            // The response object is returned with a status field that lets the
+            // app know the current login status of the person.
+            // Full docs on the response object can be found in the documentation
+            // for FB.getLoginStatus().
+            if (response.status === 'connected') {
+                // Logged into your app and Facebook.
+                testAPI();
+            } else if (response.status === 'not_authorized') {
+                // The person is logged into Facebook, but not your app.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                  'into this app.';
+            } else {
+                // The person is not logged into Facebook, so we're not sure if
+                // they are logged into this app or not.
+                document.getElementById('status').innerHTML = 'Please log ' +
+                  'into Facebook.';
+            }
+        }
+
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '10154389609420746',
+                cookie: true,  // enable cookies to allow the server to access
+                // the session
+                xfbml: true,  // parse social plugins on this page
+                version: 'v2.5' // use graph api version 2.5
+            });
+
+            // Now that we've initialized the JavaScript SDK, we call
+            // FB.getLoginStatus().  This function gets the state of the
+            // person visiting this page and can return one of three states to
+            // the callback you provide.  They can be:
+            //
+            // 1. Logged into your app ('connected')
+            // 2. Logged into Facebook, but not your app ('not_authorized')
+            // 3. Not logged into Facebook and can't tell if they are logged into
+            //    your app or not.
+            //
+            // These three cases are handled in the callback function.
+
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+
+        };
+
+        // Load the SDK asynchronously
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        // Here we run a very simple test of the Graph API after login is
+        // successful.  See statusChangeCallback() for when this call is made.
+        function testAPI() {
+            console.log('Welcome!  Fetching your information.... ');
+            FB.api('/me', function (response) {
+                console.log('Successful login for: ' + response.name);
+                document.getElementById('status').innerHTML =
+                  'Thanks for logging in, ' + response.name + '!';
+            });
+        }
+    </script>
+
+    <div data-role="page" id="mapPage">
+        <div data-role="main" class="ui-content">
+            <div data-role="panel" id="navagationPanel" data-display="overlay">
+                <div>
+                    <img style="width: 80%; margin-left: 10%; border-radius: 50px" src="https://www.drupal.org/files/profile_default.jpg" />
+                    <div style="text-align: center; margin-top: 5%; padding-bottom: 2%; font-size: 1.5em">John Doe</div>
+                    <div style="text-align: center; padding-bottom: 5%; font-size: 1em; font-style: italic; border-bottom: 1px solid #999">Louisville, KY</div>
+                </div>
+                <a href="#loginPage">Go to Page Two</a>
+            </div>
+            <input type="search" name="search" id="search">
+            <a href="#navagationPanel" style="box-shadow: 2px 4px 5px #555; border-radius: 5px; z-index: 9; position: absolute; top: 7.5px; right: 5px" class="ui-btn ui-btn-inline"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            <div id="googleMap" style="width: 100vw;height: 100vh; position: absolute; left: 0; top: 0"></div>
+        </div>
+    </div>
+
+    <div data-role="page" id="loginPage">
+        <div data-role="panel" id="navagationPanel_Page2" data-display="overlay">
+            <h2>Panel Header..</h2>
+            <p>Some text..</p>
+
+        </div>
+        <div data-role="main" class="ui-content">
+            <a href="#mapPage">Go to Page One</a>
+
+            <a href="#navagationPanel_Page2" class="ui-btn ui-btn-inline">Open Panel</a>
+
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
+
+            <div id="status">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
