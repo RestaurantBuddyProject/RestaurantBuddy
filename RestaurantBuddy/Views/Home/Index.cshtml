@@ -1,18 +1,21 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+<script src="~/Scripts/jquery.geocomplete.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAe6PejP4h93Fce9_ZxA1tEl-wEnl8oXo4&callback=initMap"></script>
     <script>
+        $("#search").geocomplete({
+            map: "#googleMap"
+        });
         function initialize() {
             if (navigator.geolocation) {
                 navigator.geolocation.watchPosition(showPosition);
             }
         }
-        function showLocation(position) {
+        function showPosition(position) {
             var mapProp = {
                 center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
                 zoom: 17,
