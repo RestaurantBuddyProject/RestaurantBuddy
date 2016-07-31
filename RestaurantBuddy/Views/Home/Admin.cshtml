@@ -1,7 +1,5 @@
-﻿
-<h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
-<script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script> 
+﻿<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js" type="text/javascript"></script> 
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <h2>Your Restaurant Layout</h2>     
     <div class="btn-group">
         <button type="button" id="addTableBtn" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,6 +42,18 @@
             $("#dragElement").append($element);
             //make it "draggable"
             $element.draggable();
+            $element.on("click", function() {
+                var image = $element.find("img:first");               
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/2_person_tables/Rect_Table_Open_2_Select.png");
+            });
+            $element.on("dragstart", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/2_person_tables/Rect_Table_Open_2_Select.png");
+            });
+            $element.on("dragstop", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/2_person_tables/Rect_Table_Open_2_Deselect.png");
+            });
             return false;
         });
         $('#table2_circular').click(function () {
@@ -53,6 +63,18 @@
             $("#dragElement").append($element);
             //make it "draggable"
             $element.draggable();
+            $element.on("click", function () {
+                var image = $element.find("img:first");               
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/2_person_tables/Circ_Table_Open_2_Select.png");
+            });
+            $element.on("dragstart", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/2_person_tables/Circ_Table_Open_2_Select.png");
+            });
+            $element.on("dragstop", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/2_person_tables/Circ_Table_Open_2_Deselect.png");
+            });
             return false;
         });
         $('#table4_rectangular').click(function () {
@@ -62,6 +84,18 @@
             $("#dragElement").append($element);
             //make it "draggable"
             $element.draggable();
+            $element.on("click", function () {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/4_person_tables/Rect_Table_Open_4_Select.png");
+            });
+            $element.on("dragstart", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/4_person_tables/Rect_Table_Open_4_Select.png");
+            });
+            $element.on("dragstop", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/4_person_tables/Rect_Table_Open_4_Deselect.png");
+            });
             return false;
         });
         $('#table4_circular').click(function () {
@@ -71,6 +105,18 @@
             $("#dragElement").append($element);
             //make it "draggable"
             $element.draggable();
+            $element.on("click", function () {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/4_person_tables/Circ_Table_Open_4_Select.png");
+            });
+            $element.on("dragstart", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/4_person_tables/Circ_Table_Open_4_Select.png");
+            });
+            $element.on("dragstop", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/4_person_tables/Circ_Table_Open_4_Deselect.png");
+            });
             return false;
         });
         $('#booth4').click(function () {
@@ -80,7 +126,20 @@
             $("#dragElement").append($element);
             //make it "draggable"
             $element.draggable();
+            $element.on("click", function () {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/4_person_tables/Booth_Open_4_Select.png");
+            });
+            $element.on("dragstart", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/4_person_tables/Booth_Open_4_Select.png");
+            });
+            $element.on("dragstop", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/4_person_tables/Booth_Open_4_Deselect.png");
+            });
             return false;
+
         });
         $('#table6_rectangular').click(function () {
             //create an element 
@@ -89,6 +148,18 @@
             $("#dragElement").append($element);
             //make it "draggable"
             $element.draggable();
+            $element.on("click", function () {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/6_person_tables/Rect_Table_Open_6_Select.png");
+            });
+            $element.on("dragstart", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/6_person_tables/Rect_Table_Open_6_Select.png");
+            });
+            $element.on("dragstop", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/6_person_tables/Rect_Table_Open_6_Deselect.png");
+            });
             return false;
         });
         $('#table6_circular').click(function () {
@@ -98,6 +169,18 @@
             $("#dragElement").append($element);
             //make it "draggable"
             $element.draggable();
+            $element.on("click", function () {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/6_person_tables/Circ_Table_Open_6_Select.png");
+            });
+            $element.on("dragstart", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/6_person_tables/Circ_Table_Open_6_Select.png");
+            });
+            $element.on("dragstop", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/6_person_tables/Circ_Table_Open_6_Deselect.png");
+            });
             return false;
         });
         $('#table8_rectangular').click(function () {
@@ -107,6 +190,18 @@
             $("#dragElement").append($element);
             //make it "draggable"
             $element.draggable();
+            $element.on("click", function () {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/8_person_tables/Rect_Table_Open_8_Select.png");
+            });
+            $element.on("dragstart", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/8_person_tables/Rect_Table_Open_8_Select.png");
+            });
+            $element.on("dragstop", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/8_person_tables/Rect_Table_Open_8_Deselect.png");
+            });
             return false;
         });
         $('#bar_table').click(function () {
@@ -117,6 +212,18 @@
             //make it "draggable"
             $element.draggable();
             return false;
+            $element.on("click", function () {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/bar_and_seats/Bar_Select.png");
+            });
+            $element.on("dragstart", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/bar_and_seats/Bar_Select.png");
+            });
+            $element.on("dragstop", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/bar_and_seats/Bar_Deselect.png");
+            });
         });
         $('#bar_stool').click(function () {
             //create an element 
@@ -125,6 +232,18 @@
             $("#dragElement").append($element);
             //make it "draggable"
             $element.draggable();
+            $element.on("click", function () {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/bar_and_seats/Bar_Stool_Open_Select.png");
+            });
+            $element.on("dragstart", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/bar_and_seats/Bar_Stool_Open_Select.png");
+            });
+            $element.on("dragstop", function (event, ui) {
+                var image = $element.find("img:first");
+                $(image).attr("src", "../Content/images/ExecuTable Table Setup/bar_and_seats/Bar_Stool_Open_Deselect.png");
+            });
             return false;
         });
 
@@ -150,7 +269,6 @@
                 $("#addTableBtn").attr({ disabled: true });
             }
         });
-       
     </script>
 
     <style type="text/css">
@@ -161,7 +279,7 @@
             right: 30%; 
             top: 0; 
             bottom: 50%;
-            width: 150px; 
-            height: 150px;
+            width: 200px; 
+            height: 200px;
         }
     </style>
