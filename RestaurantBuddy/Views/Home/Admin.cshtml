@@ -1,0 +1,152 @@
+﻿
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+<script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script> 
+
+    <h2>Your Restaurant Layout</h2>     
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="fa fa-plus"></span>
+            Add a Table <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li id="table2_rectangular"><a href="#">Table For Two (Rectangular)</a></li>
+            <li id="table2_circular"><a href="#">Table For Two (Circular)</a></li>
+            <li id="table4_rectangular"><a href="#">Table For Four (Rectangular)</a></li>
+            <li id="table4_circular"><a href="#">Table For Four (Circular)</a></li>
+            <li id="booth4"><a href="#">Booth For Four</a></li>
+            <li id="table6_rectangular"><a href="#">Table for Six (Rectangular)</a></li>
+            <li id="table6_circular"><a href="#">Table for Six (Circular)</a></li>
+            <li id="table8_rectangular"><a href="#">Table for Eight (Rectangular)</a></li>
+            <li id="bar_table"><a href="#">Bar Table</a></li>
+            <li id="bar_stool"><a href="#">Bar Stool</a></li>
+        </ul>
+    </div>
+    <a href="#revealPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Waiting Guests</a>
+
+<div data-role="panel" id="revealPanel" data-position="right" data-display="reveal">
+    <h2>Waiting Guests</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Smith - Party of 4 - Booth</li>
+        <li class="list-group-item">Jones - Part of 2 - Table</li>
+        <li class="list-group-item">Johnson - Party of 6 - Table</li>
+    </ul>
+    <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-right">Close</a>
+</div>
+<div id="pageWrap">
+    <div id="dragElement" style="position: absolute; max-height: 200px; margin-bottom: 80%;"></div>
+</div>
+    <script>
+        jQuery.fn.center = function () {
+            this.css("position", "absolute");
+            this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+                                                        $(window).scrollTop()) + "px");
+            this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+                                                        $(window).scrollLeft()) + "px");
+            return this;
+        }
+        $('#table2_rectangular').click(function () {
+            //create an element
+            var $element = $('<div class="draggableResizable" />').prepend('<img id="theImg" src="../Content/images/ExecuTable Table Setup/2_person_tables/Rect_Table_Open_2_Deselect.png" />').css("top", "0");
+            //append it to the DOM
+            $("#dragElement").append($element);
+            //make it "draggable"
+            $element.draggable();
+            return false;
+        });
+        $('#table2_circular').click(function () {
+            //create an element
+            var $element = $('<div class="draggableResizable" />').prepend('<img id="theImg" src="../Content/images/ExecuTable Table Setup/2_person_tables/Circ_Table_Open_2_Deselect.png" />').css("top", "0");
+            //append it to the DOM
+            $("#dragElement").append($element);
+            //make it "draggable"
+            $element.draggable();
+            return false;
+        });
+        $('#table4_rectangular').click(function () {
+            //create an element 
+            var $element = $('<div class="draggableResizable" />').prepend('<img id="theImg" src="../Content/images/ExecuTable Table Setup/4_person_tables/Rect_Table_Open_4_Deselect.png" />').css("top", "0");
+            //append it to the DOM
+            $("#dragElement").append($element);
+            //make it "draggable"
+            $element.draggable();
+            return false;
+        });
+        $('#table4_circular').click(function () {
+            //create an element 
+            var $element = $('<div class="draggableResizable" />').prepend('<img id="theImg" src="../Content/images/ExecuTable Table Setup/4_person_tables/Circ_Table_Open_4_Deselect.png" />').css("top", "0");
+            //append it to the DOM
+            $("#dragElement").append($element);
+            //make it "draggable"
+            $element.draggable();
+            return false;
+        });
+        $('#booth4').click(function () {
+            //create an element 
+            var $element = $('<div class="draggableResizable" />').prepend('<img id="theImg" src="../Content/images/ExecuTable Table Setup/4_person_tables/Booth_Open_4_Deselect.png" />').css("top", "0");
+            //append it to the DOM
+            $("#dragElement").append($element);
+            //make it "draggable"
+            $element.draggable();
+            return false;
+        });
+        $('#table6_rectangular').click(function () {
+            //create an element 
+            var $element = $('<div class="draggableResizable" />').prepend('<img id="theImg" src="../Content/images/ExecuTable Table Setup/6_person_tables/Rect_Table_Open_6_Deselect.png" />').css("top", "0");
+            //append it to the DOM
+            $("#dragElement").append($element);
+            //make it "draggable"
+            $element.draggable();
+            return false;
+        });
+        $('#table6_circular').click(function () {
+            //create an element 
+            var $element = $('<div class="draggableResizable" />').prepend('<img id="theImg" src="../Content/images/ExecuTable Table Setup/6_person_tables/Circ_Table_Open_6_Deselect.png" />').css("top", "0");
+            //append it to the DOM
+            $("#dragElement").append($element);
+            //make it "draggable"
+            $element.draggable();
+            return false;
+        });
+        $('#table8_rectangular').click(function () {
+            //create an element 
+            var $element = $('<div class="draggableResizable" />').prepend('<img id="theImg" src="../Content/images/ExecuTable Table Setup/8_person_tables/Rect_Table_Open_8_Deselect.png" />').css("top", "0");
+            //append it to the DOM
+            $("#dragElement").append($element);
+            //make it "draggable"
+            $element.draggable();
+            return false;
+        });
+        $('#bar_table').click(function () {
+            //create an element 
+            var $element = $('<div class="draggableResizable" />').prepend('<img id="theImg" src="../Content/images/ExecuTable Table Setup/bar_and_seats/Bar_Deselect.png" />').css("top", "0");
+            //append it to the DOM
+            $("#dragElement").append($element);
+            //make it "draggable"
+            $element.draggable();
+            return false;
+        });
+        $('#bar_stool').click(function () {
+            //create an element 
+            var $element = $('<div class="draggableResizable" />').prepend('<img id="theImg" src="../Content/images/ExecuTable Table Setup/bar_and_seats/Bar_Stool_Open_Deselect.png" />').css("top", "0");
+            //append it to the DOM
+            $("#dragElement").append($element);
+            //make it "draggable"
+            $element.draggable();
+            return false;
+        });
+
+
+        $(function () {
+            var rightVal = -280;
+            $("#clickme").click(function () {
+                rightVal = (rightVal * -1) - 280;
+                $(this).parent().animate({ right: rightVal + 'px' }, { queue: false, duration: 500 });
+            });
+        });
+
+    </script>
+
+    <style type="text/css">
+
+    </style>
