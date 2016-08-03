@@ -25,9 +25,9 @@
 <div data-role="panel" id="revealPanel" data-position="right" data-display="reveal">
     <h2>Waiting Guests</h2>
     <ul class="list-group">
-        <li class="list-group-item">Smith - Party of 4 - Booth</li>
-        <li class="list-group-item">Jones - Part of 2 - Table</li>
-        <li class="list-group-item">Johnson - Party of 6 - Table</li>
+        <li class="list-group-item draggable">Smith - Party of 4 - Booth</li>
+        <li class="list-group-item draggable">Jones - Party of 2 - Table</li>
+        <li class="list-group-item draggable">Johnson - Party of 6 - Table</li>
     </ul>
     <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-right">Close</a>
 </div>
@@ -44,7 +44,7 @@
             //append it to the DOM
             $("#dragElement").append($element);
             //make it "draggable"
-            $element.draggable();        
+            $element.draggable().droppable();        
             $element.on("click", function() {
                 var image = $element.find("img:first");
                 $(image).attr("src", "../Content/images/ExecuTable Table Setup/2_person_tables/Rect_Table_Open_2_Select.png");
@@ -56,6 +56,16 @@
             $element.on("dragstop", function (event, ui) {
                 var image = $element.find("img:first");
                 $(image).attr("src", "../Content/images/ExecuTable Table Setup/2_person_tables/Rect_Table_Open_2_Deselect.png");
+            });
+            $(function () {
+               $(".draggable").draggable();
+                $element.droppable({
+                    drop: function (event, ui) {
+                        var image = $element.find("img:first");
+                        $(image).attr("src", "../Content/images/ExecuTable Table Setup/2_person_tables/Rect_Table_Reserved_2_Deselect.png");
+                       
+                    }
+                });
             });
             return false;
         });
